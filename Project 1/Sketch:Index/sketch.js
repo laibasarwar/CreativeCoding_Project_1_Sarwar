@@ -6,135 +6,108 @@ function setup() {
 }
 function draw() {
   // maze();
-  mouse();
+  // mouse();
+  drawRed();
+}
 
+function drawRed() {
+  background(255);
+  diameter=100;
+  ellipse(width/2,height/2,diameter);
 }
 
 function mouse() {
   background(255);
-  fill(255,0,0);
   let z125 = 125; //variable for half of width
   let z250 = 250; //variable for half of height
   let z375 = 375
   for (i=0;i<width; i+=125) {
     for (j=0; j<height; j+=125){
-      noFill();
-      stroke(0);
-      rect(i, j, width, height);
-
+      push();
+      translate(i, j);
+      fill(255);
+      rect(0,0,125,125);
+      triangle(62.5,40,20,80,100,80);
+      pop();
       if ((i<z125) && (j<z125)){
-        fill(random(50));
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
+        if ((mouseX<z125) && (mouseY<z125) && (mouseIsPressed==true)){
+          fill(255,0,0,100);
           rect(i,j,125,125);
-        } else {
-          fill(random(50));
         }
       } else if ((i>=z125) && (i<z250) && (j>=0) && (j<z125)){
-        fill(random(100),200,200);
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
-        }
+          if ((mouseX>=z125) && (mouseX<z250) && (mouseY>=0) && (mouseY<z125) & (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
+          }
       } else if ((i>=0) && (i<z125) && (j>=z125) && (j<z250)){
-        fill(200,random(100),200);
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=0) && (mouseX<z125) && (mouseY>=z125) && (mouseY<z250) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=z125) && (i<z250) && (j>=z125) && (j<z250)){
-        fill(200,200,random(100));
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=z125) && (mouseX<z250) && (mouseY>=z125) && (mouseY<z250) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=z250) && (i<z375) && (j>=0) && (j<z125)){
-        fill(random(100));
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=z250) && (mouseX<z375) && (mouseY>=0) && (mouseY<z125) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=z375) && (i<width) && (j>=0) && (j<z125)){
-        fill(random(100),200,200);
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
-        }
+          if ((mouseX>=z375) && (mouseX<width) && (mouseY>=0) && (mouseY<z125) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
+          }
       } else if ((i>=z250) && (i<z375) && (j>=z125) && (j<z250)){
-        fill(200,random(100),200);
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=z250) && (mouseX<z375) && (mouseY>=z125) && (mouseY<z250) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=z375) && (i<width) && (j>=z125) && (j<z250)){
-        fill(200,200,random(100));
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=z375) && (mouseX<width) && (mouseY>=z125) && (mouseY<z250) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=0) && (i<z125) && (j>=z250) && (j<z375)){
-        fill(random(100));
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=0) && (mouseX<z125) && (mouseY>=z250) && (mouseY<z375) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=z125) && (i<z250) && (j>=z250) && (j<z375)){
-        fill(random(100),200,200);
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=z125) && (mouseX<z250) && (mouseY>=z250) && (mouseY<z375) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=0) && (i<z125) && (j>=z375) && (j<height)){
-        fill(200,random(100),200);
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=0) && (mouseX<z125) && (mouseY>=z375) && (mouseY<height) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=z125) && (i<z250) && (j>=z375) && (j<height)){
-        fill(200,200,random(100));
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=z125) && (mouseX<z250) && (mouseY>=z375) && (mouseY<height) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=z250) && (i<z375) && (j>=z250) && (j<z375)){
-        fill(random(100));
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=z250) && (mouseX<z375) && (mouseY>=z250) && (mouseY<z375) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=z375) && (i<width) && (j>=z250) && (j<z375)){
-        fill(random(100),200,200);
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(0,255,0);
-          rect(i,j,125,125);
+          if ((mouseX>=z375) && (mouseX<width) && (mouseY>=z250) && (mouseY<z375) && (mouseIsPressed == true)) {
+            fill(0,255,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=z250) && (i<z375) && (j>=z375) && (j<height)){
-        fill(200,random(100),200);
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=z250) && (mouseX<z375) && (mouseY>=z375) && (mouseY<height) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       } else if ((i>=z375) && (i<width) && (j>=z375) && (j<height)){
-        fill(200,200,random(100));
-        rect(i,j,125,125);
-        if (mouseIsPressed) {
-          fill(255,0,0);
-          rect(i,j,125,125);
+          if ((mouseX>=z375) && (mouseX<width) && (mouseY>=z375) && (mouseY<height) && (mouseIsPressed == true)) {
+            fill(255,0,0,100);
+            rect(i,j,125,125);
         }
       }
     }
@@ -142,58 +115,6 @@ function mouse() {
   fill(255,200,255);
   ellipse(mouseX, mouseY, 25,25);
 }
-// function mousePressed(){
-//   stroke(255,0,0);
-//   if ((i<z125) && (j<z125)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z125) && (i<z250) && (j>=0) && (j<z125)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=0) && (i<z125) && (j>=z125) && (j<z250)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z125) && (i<z250) && (j>=z125) && (j<z250)){
-//     ffill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z250) && (i<z375) && (j>=0) && (j<z125)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z375) && (i<width) && (j>=0) && (j<z125)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z250) && (i<z375) && (j>=z125) && (j<z250)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z375) && (i<width) && (j>=z125) && (j<z250)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=0) && (i<z125) && (j>=z250) && (j<z375)){
-//     fill(0,255,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z125) && (i<z250) && (j>=z250) && (j<z375)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=0) && (i<z125) && (j>=z375) && (j<height)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z125) && (i<z250) && (j>=z375) && (j<height)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z250) && (i<z375) && (j>=z250) && (j<z375)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z375) && (i<width) && (j>=z250) && (j<z375)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z250) && (i<z375) && (j>=z375) && (j<height)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   } else if ((i>=z375) && (i<width) && (j>=z375) && (j<height)){
-//     fill(255,0,0);
-//     rect(i,j,125,125);
-//   }
-// }
 
 function maze() {
   background(255);
