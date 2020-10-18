@@ -1,5 +1,8 @@
 let x=12.5;
 let y=12.5;
+let xspeed = .2;
+let xpos = 100;
+let randsize=100;
 
 function setup() {
   createCanvas(500,500);
@@ -11,11 +14,45 @@ function draw() {
 }
 
 function drawRed() {
-  background(255);
-  diameter=100;
-  ellipse(width/2,height/2,diameter);
+  background(50);
+  stroke(255);
+  strokeWeight(8);
+  xcenter=width/2;
+  ycenter=height/2;
+  noStroke();
+  fill(255);
+  ellipse(xcenter, ycenter, xpos);
+  fill(random(200,255),0,0);
+  ellipse(random(width),random(height),randsize);
+  if (xpos > width/3) {
+    xspeed = .2;
+  }
+  xpos -= xspeed;
+  randsize+=xspeed;
+  if (xpos < 0) {
+    xspeed = -.2;
+    randsize-=xspeed;
+  }
 }
-
+// function drawRed() {
+//   background(0);
+//   stroke(255);
+//   strokeWeight(8);
+//   xcenter=width/2;
+//   ycenter=height/2;
+//   fill(255);
+//   ellipse(xcenter, ycenter, xpos);
+//   fill(random(255),0,0);
+//   ellipse(random(width),random(height),randsize);
+//   if (xpos > width/3) {
+//     xspeed = 1;
+//   }
+//   xpos -= xspeed;
+//   randsize+=xspeed;
+//   if (xpos < 0) {
+//     xpos = -1;
+//   }
+// }
 function mouse() {
   background(255);
   let z125 = 125; //variable for half of width
