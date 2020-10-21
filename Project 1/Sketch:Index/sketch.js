@@ -8,11 +8,49 @@ function setup() {
   createCanvas(500,500);
 }
 function draw() {
-  // maze();
-  // mouse();
-  drawRed();
+  // drawMaze();
+  // drawCard();
+  // drawRed();
+  drawStar();
 }
 
+function drawStar(){
+  background(0);
+
+  for (i=0;i<width; i+=20) {
+    for (j=0; j<height; j+=20){
+
+    push();
+    fill(255);
+    translate(10,10);
+    // rotate(frameCount / -100.0);
+    star(0+i, 0+j, 2, 4, 5);
+    pop();
+    }
+  }
+
+
+  fill(200);
+  triangle(0,height/2,0,height,width,height);
+  fill(225);
+  ellipse(150,325,25,50);
+
+}
+
+function star(x, y, radius1, radius2, npoints) {
+  let angle = TWO_PI / npoints;
+  let halfAngle = angle / 2.0;
+  beginShape();
+  for (let a = 0; a < TWO_PI; a += angle) {
+    let sx = x + cos(a) * radius2;
+    let sy = y + sin(a) * radius2;
+    vertex(sx, sy);
+    sx = x + cos(a + halfAngle) * radius1;
+    sy = y + sin(a + halfAngle) * radius1;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
 function drawRed() {
   background(50);
   stroke(255);
@@ -34,26 +72,8 @@ function drawRed() {
     randsize-=xspeed;
   }
 }
-// function drawRed() {
-//   background(0);
-//   stroke(255);
-//   strokeWeight(8);
-//   xcenter=width/2;
-//   ycenter=height/2;
-//   fill(255);
-//   ellipse(xcenter, ycenter, xpos);
-//   fill(random(255),0,0);
-//   ellipse(random(width),random(height),randsize);
-//   if (xpos > width/3) {
-//     xspeed = 1;
-//   }
-//   xpos -= xspeed;
-//   randsize+=xspeed;
-//   if (xpos < 0) {
-//     xpos = -1;
-//   }
-// }
-function mouse() {
+
+function drawCard() {
   background(255);
   let z125 = 125; //variable for half of width
   let z250 = 250; //variable for half of height
@@ -153,7 +173,7 @@ function mouse() {
   ellipse(mouseX, mouseY, 25,25);
 }
 
-function maze() {
+function drawMaze() {
   background(255);
 
   //MAZE
