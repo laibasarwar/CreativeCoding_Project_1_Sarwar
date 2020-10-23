@@ -26,6 +26,7 @@ class Star{
         fill(200);
         triangle(0,height/2,0,height,width,height);
         fill(225);
+        ellipseMode(CENTER);
         ellipse(150,325,25,50);
     }
 }

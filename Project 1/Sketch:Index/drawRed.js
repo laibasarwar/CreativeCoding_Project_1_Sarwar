@@ -13,6 +13,7 @@ class Cluster{
         // stroke(255);
         // strokeWeight(8);
         fill(255);
+        ellipseMode(CENTER);
         ellipse(this.xcenter, this.ycenter, this.xpos);
         fill(random(200,255),0,0);
         ellipse(random(this.width),random(this.height),this.randsize);

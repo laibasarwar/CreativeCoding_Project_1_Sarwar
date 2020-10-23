@@ -19,6 +19,7 @@ class Card{
             }
         }
         // fill(255,200,255);
+        ellipseMode(CENTER);
         ellipse(x1, y1, 25);
         // this.clickCard();
     }
