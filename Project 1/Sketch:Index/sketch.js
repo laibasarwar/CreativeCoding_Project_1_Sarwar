@@ -2,6 +2,7 @@ let choice=1; //initial drawing number
 
 let blocks=[];
 let card;
+let cards=[];
 let cluster;
 let stars=[];
 
@@ -24,7 +25,16 @@ function setup() {
     blocks.push(leftend,bottomend,rightend,block1,block2,block3,block4,block5,block6,block7,block8,block9,block10,block11,block12,block13,block14,block15,block16,block17,block18,block19,block20,block21,block22,block23,block24,block25,block26,block27,block28,block29,block30,block31,block32,block33,block34,block35,block36,block37,block38,block39,block40);
   }
 
-  card=new Card();
+  // card=new Card();
+  for (let i=0; i<4; i++){
+    let change=0+125*i;
+    let r=125;
+    let c=new Card(change,0,r,r);
+    let c2=new Card(change,125,r,r);
+    let c3=new Card(change,250,r,r);
+    let c4=new Card(change,375,r,r);
+    cards.push(c,c2,c3,c4); 
+  }
 
   cluster=new Cluster(100);
 
@@ -32,6 +42,13 @@ function setup() {
   for (let i =0; i<(width);i++){
     let x=0+50*i;
     stars[i]=new Star(x,25, 2.5, 5, 5);
+  }
+}
+function mousePressed() {
+  for (let i = cards.length - 1; i >= 0; i--) {
+    if (cards[i].contains(mouseX, mouseY)) {
+      cards.splice(i, 1);
+    }
   }
 }
 function draw() {
@@ -43,11 +60,35 @@ function draw() {
   }
   if (choice==2) {
     background(255);
-    // card=new Card(mouseX,mouseY);
-    // to display the ellipse mouse
-    card.displayCards(mouseX,mouseY);
-    // card.clickCard(mouseX,mouseY);
-    // ellipse(this.x, this.y, 25);
+
+    push();
+    strokeWeight(1);
+    stroke(0);
+    fill(235,156,146,92);
+    quad(100,100,150,100,150,150,100,200);//chimney
+    fill(235,192,194,92);
+    triangle(50,height/2,width/2,50,450,height/2);
+    ellipseMode(CENTER);
+    fill(165,194,232,91);//blue
+    ellipse(width/2,150,50,50);//roof window
+    rect(50,height/2,400,200);//house body
+    rectMode(CENTER);
+    fill(165,194,232,91);//blue
+    rect(125,300,100,75);//windows
+    rect(375,300,100,75);//windows
+    fill(158,138,121,62);//brown
+    rect(width/2,400,50,100);//door
+    pop();
+    
+    for (let i = 0; i < cards.length; i++) {
+      if (cards[i].contains(mouseX, mouseY)) {
+        cards[i].changeColor(255);
+      } else {
+        cards[i].changeColor(100);
+      }
+      cards[i].show();
+    }
+
   }
   if (choice==3) {
     background(0);
@@ -64,6 +105,7 @@ function draw() {
   }
 }
 
+
 function keyPressed(){
   if (keyCode==32){ //spacebar
     choice++;
@@ -71,6 +113,7 @@ function keyPressed(){
       choice=1; //make it a cycle
     }
   }
+
   //   } else if (keyCode === LEFT_ARROW) {
   //     xpos-=25;
   //   } else if (keyCode === RIGHT_ARROW) {
