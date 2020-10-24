@@ -71,4 +71,14 @@ function keyPressed(){
       choice=1; //make it a cycle
     }
   }
+  //   } else if (keyCode === LEFT_ARROW) {
+  //     xpos-=25;
+  //   } else if (keyCode === RIGHT_ARROW) {
+  //     xpos+=25;
+  //   } else if (keyCode === UP_ARROW) {
+  //     ypos-=25;
+  //   } else if (keyCode === DOWN_ARROW) {
+  //     ypos+=25;
+  //   }
+  // } 
 } 
