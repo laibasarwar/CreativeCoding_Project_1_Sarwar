@@ -24,6 +24,7 @@ class Card{
         // this.clickCard();
     }
     clickCard(x3,y3){
+        // this function is not called correctly within the class. Also, is this not clean enough, since I had to see if each card can be red or green when the mouse is over it
         if ((i<z125) && (j<z125)){
             if ((mouseX<z125) && (mouseY<z125) && (mouseIsPressed==true)){
               fill(255,0,0,100);

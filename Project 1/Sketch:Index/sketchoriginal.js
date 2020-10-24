@@ -1,4 +1,7 @@
 //drawred function
+
+
+// original with functions
 let choice=1; //initial drawing number
 // drawred variables
 let x=12.5;

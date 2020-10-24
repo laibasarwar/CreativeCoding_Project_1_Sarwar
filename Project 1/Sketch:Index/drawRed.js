@@ -1,5 +1,6 @@
 class Cluster{
     constructor(randsize){
+        // this class works perfectly, but is it a problem if I dont use a x and y constructor for this class, since when I do, the class does not run
         this.width=width;
         this.height=height;
         this.randsize=randsize;

@@ -7,7 +7,8 @@ let stars=[];
 
 
 function setup() {
-  createCanvas(500,500);
+  createCanvas(500,500); 
+  // to add blocks of the maze to the same array, is there a cleaner way, or is this good enough? I want to use this array to see compare where the ellipse is so it does not touch the black bars
   for (let i =0; i<20;i++){
     let x=50+25*i;
     blocks[i]=new Block(x,0,25,25); leftend=new Block(0,25,25,height); bottomend=new Block(0,475,475,25); rightend=new Block(475,25,25,425);
@@ -27,7 +28,8 @@ function setup() {
 
   cluster=new Cluster(100);
 
-  for (let i =0; i<(width-100);i++){
+  //to make the stars distanced apart and have multiple instances. having trouble incorporating columns within the array, 
+  for (let i =0; i<(width);i++){
     let x=0+50*i;
     stars[i]=new Star(x,25, 2.5, 5, 5);
   }
@@ -42,17 +44,20 @@ function draw() {
   if (choice==2) {
     background(255);
     // card=new Card(mouseX,mouseY);
+    // to display the ellipse mouse
     card.displayCards(mouseX,mouseY);
     // card.clickCard(mouseX,mouseY);
     // ellipse(this.x, this.y, 25);
   }
   if (choice==3) {
     background(0);
+    // drawred call to functions
     cluster.display();
     cluster.move();
   }
   if (choice==4) {
     background(0);
+    // call to star function and class
     for (let i =0; i<stars.length;i++){
         stars[i].show()   
     }
