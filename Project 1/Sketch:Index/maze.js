@@ -15,12 +15,15 @@ class Block{
       // fill(255,0,0, 50);
       // ellipseMode(CORNERS);
       // ellipse(0,0,25,25);
-      this.player(0,0);
+    //   this.player(0,0);
       fill(0);
       rect(this.x,this.y,this.rx,this.ry);
       // this.keyPressed();
   }
   player(xpos,ypos){
+      this.xpos=xpos;
+      this.ypos=ypos;
+
       fill(255,0,0, 50);
       ellipseMode(CORNERS);
       ellipse(this.xpos,this.ypos,25,25);

@@ -71,9 +71,14 @@ function setup() {
 function draw() {
   if (choice==1) {
     background(255);
+    // block.player();
     for (let i =0; i<blocks.length;i++){
         blocks[i].show();
+        blocks[i].player(0,0);
     }
+    // ellipseMode(CORNER);
+
+    // ellipse(0,0,25,25);
   }
   if (choice==2) {
     background(255);
@@ -130,20 +135,31 @@ function draw() {
   }
 }
 
-
+function mousePressed() {
+  for (let i = cards.length - 1; i >= 0; i--) {
+    if (cards[i].contains(mouseX, mouseY)) {
+      cards.splice(i, 1);
+    }
+  }
+}
 function keyPressed(){
-  if (keyCode==32){ //spacebar
+  // if (keyCode==32){ //spacebar
+  //   choice++;
+  //   if (choice>5){
+  //     choice=1; //make it a cycle
+  //   }
+  if (keyCode === LEFT_ARROW) {
+    block.xpos-=25;
+  } else if (keyCode === RIGHT_ARROW) {
+    block.xpos+=25;
+  } else if (keyCode === UP_ARROW) {
+    block.ypos-=25;
+  } else if (keyCode === DOWN_ARROW) {
+    block.ypos+=25;
+  } else if (keyCode==32){ //spacebar
     choice++;
     if (choice>5){
       choice=1; //make it a cycle
     }
-  } else if (keyCode === LEFT_ARROW) {
-    xpos-=25;
-  } else if (keyCode === RIGHT_ARROW) {
-    xpos+=25;
-  } else if (keyCode === UP_ARROW) {
-    ypos-=25;
-  } else if (keyCode === DOWN_ARROW) {
-    ypos+=25;
   }
 } 
