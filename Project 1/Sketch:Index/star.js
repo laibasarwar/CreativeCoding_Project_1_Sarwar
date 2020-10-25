@@ -35,11 +35,3 @@ class Star{
         ellipse(150,325,25,50);
     }
 }
-
-// this was in the function version, within the draw, the rotate would work but it would move eveything instead of just the star
-// push();
-// fill(255);
-// translate(10,10);
-// // rotate(frameCount / -100.0);
-// this.drawStar();
-// pop();

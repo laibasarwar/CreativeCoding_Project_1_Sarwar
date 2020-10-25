@@ -6,6 +6,9 @@ let cards=[];
 let cluster;
 let stars=[];
 
+let unit = 40;
+let count;
+let mods = [];
 
 function setup() {
   createCanvas(500,500); 
@@ -38,19 +41,33 @@ function setup() {
 
   cluster=new Cluster(100);
 
-  //to make the stars distanced apart and have multiple instances. having trouble incorporating columns within the array, 
+  // to make the stars distanced apart and have multiple instances. having trouble incorporating columns within the array, 
   for (let i =0; i<(width);i++){
-    let x=0+50*i;
-    stars[i]=new Star(x,25, 2.5, 5, 5);
+    let x=random(width);
+    let y=random(height);
+    stars[i]=new Star(x,y, 1.5, 3, 5);
   }
-}
-function mousePressed() {
-  for (let i = cards.length - 1; i >= 0; i--) {
-    if (cards[i].contains(mouseX, mouseY)) {
-      cards.splice(i, 1);
+
+  noStroke();
+  let wideCount = width / unit;
+  let highCount = height / unit;
+  count = wideCount * highCount;
+
+  let index = 0;
+  for (let y = 0; y < highCount; y++) {
+    for (let x = 0; x < wideCount; x++) {
+      mods[index++] = new Module(
+        x * unit,
+        y * unit,
+        unit / 2,
+        unit / 2,
+        random(0.05, 0.8),
+        unit
+      );
     }
   }
 }
+
 function draw() {
   if (choice==1) {
     background(255);
@@ -103,25 +120,30 @@ function draw() {
         stars[i].show()   
     }
   }
+  if (choice==5) {  
+    background(0);
+    for (let i = 0; i < count; i++) {
+      mods[i].update();
+      mods[i].draw();
+      // mods[i].show();
+    }
+  }
 }
 
 
 function keyPressed(){
   if (keyCode==32){ //spacebar
     choice++;
-    if (choice>4){
+    if (choice>5){
       choice=1; //make it a cycle
     }
+  } else if (keyCode === LEFT_ARROW) {
+    xpos-=25;
+  } else if (keyCode === RIGHT_ARROW) {
+    xpos+=25;
+  } else if (keyCode === UP_ARROW) {
+    ypos-=25;
+  } else if (keyCode === DOWN_ARROW) {
+    ypos+=25;
   }
-
-  //   } else if (keyCode === LEFT_ARROW) {
-  //     xpos-=25;
-  //   } else if (keyCode === RIGHT_ARROW) {
-  //     xpos+=25;
-  //   } else if (keyCode === UP_ARROW) {
-  //     ypos-=25;
-  //   } else if (keyCode === DOWN_ARROW) {
-  //     ypos+=25;
-  //   }
-  // } 
 } 
