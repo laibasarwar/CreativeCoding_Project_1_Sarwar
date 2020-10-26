@@ -25,7 +25,8 @@ class Star{
 
         //}
         // let rotaterate=random(0.00001,0.15);
-        this.rotatestar+=0.15;
+        smooth();
+        this.rotatestar+=0.15;//rotation angle
         push();
         translate(this.x,this.y); //this.x,this.y
         rotate(this.rotatestar);
@@ -54,7 +55,7 @@ class Star{
         //this.x=this.x+random(0.1125);
         // frameRate(0.01);
         // frameCount(1);
-        this.y=this.y+random(-1,0.125);//move stars up through random slow time
+        this.y=this.y+random(-1,-0.9);//move stars up through random slow time-smoother
     }
     hill(){//display hill and person
         // push();

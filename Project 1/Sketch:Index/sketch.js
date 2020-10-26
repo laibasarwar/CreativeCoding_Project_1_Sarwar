@@ -69,7 +69,7 @@ function setup() {
   for (let i =0; i<500;i++){
     let x=random(0,500);//xpositions
     let y=random(0,500);//ypositions
-    let r=random(1.5,5);//random sizes
+    let r=random(0,1);//random sizes from 0 to 1 - really small
     timestart=millis();//initialize time
     backgroundcolor=color(0,0,0);//black in the beginning
     stars[i]=new Star(x,y, r, r*2, 5);//each star with x and y and 5 as in the npoints
