@@ -18,10 +18,14 @@ class Card{
   }
   contains(px, py) {
     let d = dist(px, py, this.x, this.y);
-    if ((d < this.ry) && (d<this.ry)) {
+    if ((d < this.rx) && (d<this.ry)) {
       return true;
     } else {
       return false;
     }
   }
+  // intersects(other) {
+  //   let d = dist(this.x, this.y, other.x, other.y);
+  //   return d < this.r + other.r;
+  // }
 }
