@@ -1,6 +1,6 @@
 class Cluster{
-    constructor(randsize){
-        // this class works perfectly, but is it a problem if I dont use a x and y constructor for this class, since when I do, the class does not run
+    constructor(randsize){//random size of cluster of people
+        
         this.width=width;
         this.height=height;
         this.randsize=randsize;
@@ -8,27 +8,35 @@ class Cluster{
         this.ycenter=250;
         this.xspeed = .2;
         this.xpos = 100;
+        //starttime=millis();
     }
 
     display(){
         // stroke(255);
         // strokeWeight(8);
-        fill(255);
-        ellipseMode(CENTER);
-        ellipse(this.xcenter, this.ycenter, this.xpos);
+
+        noStroke();
         fill(random(200,255),0,0);
-        ellipse(random(this.width),random(this.height),this.randsize);
+        ellipseMode(CENTER);
+        ellipse(random(this.width),random(this.height),this.randsize);//cluster positions and size
+        fill(255);
+        ellipse(this.xcenter, this.ycenter, this.xpos);
     }
     move(){
         if (this.xpos > width/3) {
             this.xspeed = .2;
         }
-        this.xpos -= this.xspeed;
+        this.xpos -= this.xspeed;//as person in middle gets smaller, the cluster of people get bigger
         this.randsize+=this.xspeed;
 
-        if (this.xpos < 0) {
+        if (this.xpos < 0) {//as person gets bigger the cluster gets smaller
         this.xspeed = -.2;
         this.randsize-=this.xspeed;
+
+        //starttime=millis();
+        //if millis()-startime>=25000{
+
+        //}
         }
     }
 }

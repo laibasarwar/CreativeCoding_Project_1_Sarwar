@@ -6,8 +6,8 @@ class Block{
       this.rx=rx;
       // length of height
       this.ry=ry;
-      this.xmaze=xmaze;
-      this.ymaze=ymaze;
+      this.xmaze=xmaze;//player position x
+      this.ymaze=ymaze;//player position y
     //   let playermaze;
       // positions of ellipse or player
     //   this.xpos=0;
@@ -20,18 +20,18 @@ class Block{
       // ellipse(0,0,25,25);
     //   this.player(0,0);
     //   fill(0);
-      rect(this.x,this.y,this.rx,this.ry);
+      rect(this.x,this.y,this.rx,this.ry);//show each black block 
 
       // this.keyPressed();
   }
   
 
-  intersects(playermaze) {
+  intersects(playermaze) {//if the black blocks intersect the player formula
     let d = dist(this.x, this.y, playermaze.x, playermaze.y);
     return d < this.r + playermaze.r;
   }
 
-  contains(px, py) {
+  contains(px, py) {//boolean for player position in block
     let d = dist(px, py, this.x, this.y);
     if ((d < this.ry) && (d<this.ry)) {
       return true;
