@@ -56,24 +56,24 @@ function setup() {
     // stars[i].rotate(PI/10.0);
   }
 
-  noStroke();
-  let wideCount = width / unit;
-  let highCount = height / unit;
-  count = wideCount * highCount;
+  // noStroke();
+  // let wideCount = width / unit;
+  // let highCount = height / unit;
+  // count = wideCount * highCount;
 
-  let index = 0;
-  for (let y = 0; y < highCount; y++) {
-    for (let x = 0; x < wideCount; x++) {
-      mods[index++] = new Module(
-        x * unit,
-        y * unit,
-        unit / 2,
-        unit / 2,
-        random(0.05, 0.8),
-        unit
-      );
-    }
-  }
+  // let index = 0;
+  // for (let y = 0; y < highCount; y++) {
+  //   for (let x = 0; x < wideCount; x++) {
+  //     mods[index++] = new Module(
+  //       x * unit,
+  //       y * unit,
+  //       unit / 2,
+  //       unit / 2,
+  //       random(0.05, 0.8),
+  //       unit
+  //     );
+  //   }
+  // }
 
   // player=new Player(0,0);
 }
@@ -165,16 +165,16 @@ function draw() {
     ellipse(150,325,35,75);
     // star.hill();
   }
-  if (choice==5) {  
-    background(0);
-    for (let i = 0; i < count; i++) {
-      mods[i].update();
-      // stars[i].show()     
-      mods[i].draw();
-      // mods[i].star();
-      // mods[i].show();
-    }
-  }
+  // if (choice==5) {  
+  //   background(0);
+  //   for (let i = 0; i < count; i++) {
+  //     mods[i].update();
+  //     // stars[i].show()     
+  //     mods[i].draw();
+  //     // mods[i].star();
+  //     // mods[i].show();
+  //   }
+  // }
 }
 
 function mousePressed() {
@@ -201,7 +201,7 @@ function keyPressed(){
       playermaze.y+=25;
     } else if (keyCode==32){ //spacebar
       choice++;
-      if (choice>5){
+      if (choice>4){
         choice=1; //make it a cycle
       }
     }
