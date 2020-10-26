@@ -8,9 +8,19 @@ class Star{
         // star angle definitions
         this.angle = TWO_PI / this.npoints;
         this.halfAngle = this.angle / 2.0;
+        this.rotatestar=0;
     }
 
     show(){
+        // push();
+        // translate(width/2,height/2);
+        // pop();
+        // push();
+        this.rotatestar+=0.001;
+        
+        // rotate(this.rotatestar);
+        // translate(star.x,star.y); 
+
         beginShape();
         fill(255);
         stroke(255);
@@ -25,13 +35,27 @@ class Star{
           vertex(this.sx, this.sy);
         }
         endShape(CLOSE);
+        // pop();
+        push(); 
+        this.hill;
+        pop();
+    }
 
-        //hill
-        fill(200);
+    starJiggle(){
+        this.x=this.x+random(-0.5,0.5);
+        this.y=this.y+random(-0.5,0.5);
+    }
+    hill(){
+        // push();
+        // hill
+        noStroke();
+        fill(116,158,19);
         triangle(0,height/2,0,height,width,height);
         //person looking at the stars
-        fill(225);
+        fill(47,182,235);
         ellipseMode(CENTER);
-        ellipse(150,325,25,50);
+        ellipse(150,325,35,75);
     }
+
+
 }

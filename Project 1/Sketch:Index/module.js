@@ -55,7 +55,8 @@ class Module {
     fill(255);
     
     ellipse(this.xOff + this.x, this.yOff + this.y, 6, 6);
-    // star(this.xOff + this.x,this.yOff + this.y, 1.5, 3, 5);
+    
+    //this.star(this.xOff + this.x,this.yOff + this.y, 1.5, 3, 5);
 
     //hill
     noStroke();

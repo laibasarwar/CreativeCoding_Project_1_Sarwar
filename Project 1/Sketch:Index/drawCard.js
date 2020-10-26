@@ -4,15 +4,19 @@ class Card{
       this.y=y;
       this.rx=rx;
       this.ry=ry;
-      this.colorbrightness=0;
+      this.colorred=0;
+      this.colorgreen=0;
+      this.colorblue=0;
   }
-  changeColor(bright) {
-    this.colorbrightness = bright;
+  changeColor(colorred,colorgreen,colorblue) {
+    this.colorred = colorred;
+    this.colorgreen = colorgreen;
+    this.colorblue = colorblue;
   }
   show(){
-    strokeWeight(5);
-    stroke(255,0,0);
-    fill(this.colorbrightness);
+    strokeWeight(2);
+    stroke(0,0,255);
+    fill(this.colorred,this.colorgreen,this.colorblue);
     rectMode(CORNER);
     rect(this.x,this.y,this.rx,this.ry);
   }

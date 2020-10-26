@@ -16,6 +16,8 @@ let mods = [];
 let xmaze=0;
 let ymaze=0;
 
+// let rotatestar=0;
+
 function setup() {
   createCanvas(500,500); 
   // to add blocks of the maze to the same array, is there a cleaner way, or is this good enough? I want to use this array to see compare where the ellipse is so it does not touch the black bars
@@ -47,10 +49,11 @@ function setup() {
   cluster=new Cluster(100);
 
   // to make the stars distanced apart and have multiple instances. having trouble incorporating columns within the array, 
-  for (let i =0; i<(width);i++){
-    let x=random(width);
-    let y=random(height);
+  for (let i =0; i<500;i++){
+    let x=random(0,500);
+    let y=random(0,500);
     stars[i]=new Star(x,y, 1.5, 3, 5);
+    // stars[i].rotate(PI/10.0);
   }
 
   noStroke();
@@ -72,17 +75,12 @@ function setup() {
     }
   }
 
-  player=new Player(0,0);
+  // player=new Player(0,0);
 }
 
 function draw() {
   if (choice==1) {
     background(255);
-    // block.player();
-    // blocks.player(mouseX,mouseY);
-    // fill(255,0,0);
-    // fill(255,0,0);
-    // playermaze.show();
 
     for (let b of blocks) {
       fill(0);
@@ -101,19 +99,6 @@ function draw() {
         playermaze.y=0;
         overlapping=true;
       }
-    //   let overlapping = false;
-    //   for (playermaze in bubbles) {
-    //     if (b !== playermaze && b.intersects(playermaze)) {
-    //       overlapping = true;
-    //     }
-    //   }
-
-    //   if (overlapping) {
-    //     b.changeColor(255);
-    //   } else {
-    //     b.changeColor(0);
-    //   }
-
     }
     
   }
@@ -141,9 +126,9 @@ function draw() {
     
     for (let i = 0; i < cards.length; i++) {
       if (cards[i].contains(mouseX, mouseY)) {
-        cards[i].changeColor(255);
+        cards[i].changeColor(166,162,224);//purple
       } else {
-        cards[i].changeColor(100);
+        cards[i].changeColor(161,224,189);//green
       }
       cards[i].show();
     }
@@ -158,16 +143,35 @@ function draw() {
   }
   if (choice==4) {
     background(0);
+    // rotatestar+=0.2;
     // call to star function and class
+    
     for (let i =0; i<stars.length;i++){
-        stars[i].show()   
+        // rotate(rotatestar);
+        // push();
+        stars[i].show();
+        stars[i].starJiggle();
+        // pop();
+
+        // stars[i].hill();
+        // stars[i].rotate(PI/10.0);
     }
+    noStroke();
+    fill(116,158,19);
+    triangle(0,height/2,0,height,width,height);
+    //person looking at the stars
+    fill(47,182,235);
+    ellipseMode(CENTER);
+    ellipse(150,325,35,75);
+    // star.hill();
   }
   if (choice==5) {  
     background(0);
     for (let i = 0; i < count; i++) {
       mods[i].update();
+      // stars[i].show()     
       mods[i].draw();
+      // mods[i].star();
       // mods[i].show();
     }
   }
