@@ -62,12 +62,37 @@ class Star{
         // hill
         noStroke();
         fill(116,158,19);
-        triangle(0,height/2,0,height,width,height);
+        // for (let i=250;i<=width;i++){
+        //     for (let j=250;j<=height;j++){
+        //         stroke(116,158,19);
+        //         line(i,j,5,5);
+        //     }
+        // }
+        fill(116,200,19);
+        quad(0,400,250,300,500,500,0,500);
+        fill(116,140,19);
+        quad(500,400,500,500,250,300);
+        // triangle(0,height/2,0,height,width,height);
         //person looking at the stars
-        fill(47,182,235);
+        fill(189,136,250);
         ellipseMode(CENTER);
-        ellipse(150,325,35,75);
+			  
+		ellipse(275,265,25,25);
+        ellipse(275,295,35,45);
+        // ellipse(290,315,35,10);
+
+ 
+
+        // for (this.i=250;this.i<=width;this.i++){
+        // stroke(116,140,19);
+        // noFill();  
+        // arc(50, 275, 70, 70,PI, PI + QUARTER_PI);
+        // for (let arcx=250; arcx<500;arcx+=10){
+        //     stroke(116,140,19);
+        //     arc(50+arcx, 275, 70, 70,PI, PI + QUARTER_PI);
+        // }                                            
+        
+
+        // }
     }
-
-
 }

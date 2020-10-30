@@ -15,7 +15,8 @@ let choice=1; //initial drawing number
 let blocks=[];//MAZE function
 let card; //card function
 let cards=[];//card array
-let cluster;//cluster function
+//let cluster;//cluster function
+let clusters=[];
 let stars=[]; //stars array
 
 // let player;
@@ -60,7 +61,20 @@ function setup() {
     cards.push(c,c2,c3,c4); //card array
   }
 
-  cluster=new Cluster(100);//cluster class with size being called in
+  //cluster=new Cluster(50);//cluster class with size being called in
+  for (let i=0; i<9; i++){
+    // for (let j=0; i<height; j++){ //tried to make double for loop but could not make all of the circles
+    let changex=0+100*i;
+    let radclust=5;
+      // let changex=75+150*j;
+    let clust1=new Cluster(changex,0,radclust,random(100,255),random(100,255),random(100,255)); //random colors with positioned circles
+    let clust2=new Cluster(changex,100,radclust,random(100,255),random(100,255),random(100,255));
+    let clust3=new Cluster(changex,200,radclust,random(100,255),random(100,255),random(100,255));
+    let clust4=new Cluster(changex,300,radclust,random(100,255),random(100,255),random(100,255));
+    let clust5=new Cluster(changex,400,radclust,random(100,255),random(100,255),random(100,255));
+    let clust6=new Cluster(changex,500,radclust,random(100,255),random(100,255),random(100,255));
+    clusters.push(clust1,clust2,clust3,clust4,clust5,clust6);
+  }
 
   // to make the stars distanced apart and have multiple instances. having trouble incorporating columns within the array, 
   // timestart=millis();
@@ -89,6 +103,27 @@ function draw() {
 
       fill(255,0,0);
       playermaze.show();
+
+      push();//had to put house visual here so it runs once and is in the background
+      translate(475,475);
+      scale(0.05);
+      strokeWeight(1);
+      stroke(0);
+      fill(235,156,146,92);
+      quad(100,100,150,100,150,150,100,200);//chimney
+      fill(235,192,194,92);
+      triangle(50,height/2,width/2,50,450,height/2);
+      ellipseMode(CENTER);
+      fill(165,194,232,91);//blue
+      ellipse(width/2,150,50,50);//roof window
+      rect(50,height/2,400,200);//house body
+      rectMode(CENTER);
+      fill(165,194,232,91);//blue
+      rect(125,300,100,75);//windows
+      rect(375,300,100,75);//windows
+      fill(158,138,121,62);//brown
+      rect(width/2,400,50,100);//door
+      pop();
 
       if (playermaze.x==475 && playermaze.y==475){
         choice=2;//move on to cards function
@@ -139,8 +174,13 @@ function draw() {
   if (choice==3) {//cluster function
     background(205,168,240,94);//lavender background
     // drawred call to functions
-    cluster.display();//display finctions
-    cluster.move();
+    // cluster.display();//display finctions
+    // cluster.move();
+
+    for (let i = 0; i < clusters.length; i++) {
+      clusters[i].display();//display finctions
+      clusters[i].move();
+    }
   }
   if (choice==4) {//stars function
     background(backgroundcolor);//change background color over time
